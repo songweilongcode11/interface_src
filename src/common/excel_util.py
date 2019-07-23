@@ -47,7 +47,7 @@ class excel_util(object):
         table = data.sheets()[by_index]
         nrows = table.nrows #行数
         ncols = table.ncols #列数
-        colnames = table.row_values(colnameindex) #某一行数据
+        colnames = table.row_values(colnameindex)#某一行数据
         list =[]
         for rownum in range(1,nrows):
              row = table.row_values(rownum)
@@ -88,6 +88,9 @@ class excel_util(object):
         sheet = data.sheet_by_index(sheetindex)
         rows = sheet.row_values(rowsindex)
         cell_value=sheet.cell(rowsindex,colindex).value.encode('utf-8')
+        print(cell_value.ctype)
+        # if cell_value.ctype == 2 and cell_value.value % 1 == 0:
+        #     cell_value = int(cell_value.value)
         return cell_value
         
 

@@ -1,6 +1,0 @@
-2019-06-29 14:59:28,941 - login - INFO - 执行登录接口开始
-2019-06-29 14:59:28,941 - base_interface - INFO - 执行post请求开始
-2019-06-29 14:59:30,219 - base_interface - INFO - 执行post请求成功
-2019-06-29 14:59:30,273 - login - INFO - 执行登录接口开始
-2019-06-29 14:59:30,273 - base_interface - INFO - 执行post请求开始
-2019-06-29 14:59:31,051 - base_interface - INFO - 执行post请求成功

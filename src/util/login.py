@@ -3,11 +3,11 @@ import unittest
 import time
 import ddt
 from ddt import ddt,data,file_data,unpack
-from common.excel_util import  excel_util
+from src.common.excel_util import  excel_util
 import os
-from base.base_interface import  base_interface
-from common.logger import logger
-from testcase.login.login import login
+from src.base.base_interface import base_interface
+from src.common.logger import logger
+from src.testcase.login.login import login
 class login_def(base_interface):
     def login_func(self,username,password):
         data={}

@@ -6,8 +6,8 @@ import HTMLTestRunner
 import io
 from ddt import ddt,data,file_data,unpack
 import os
-from config.config import  config
-from testcase.login import login
+from src.config.config import  config
+from src.testcase.login import login
 
 
 def load_tests():

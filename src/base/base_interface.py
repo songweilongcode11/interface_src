@@ -1,6 +1,7 @@
 # coding=utf-8
 import requests
-from common.logger import logger
+import json
+from src.common.logger import logger
 import json
 logger = logger('base_interface').getlog()
 class base_interface(object):
