@@ -8,13 +8,13 @@ import os
 from src.base.base_interface import base_interface
 from src.common.logger import logger
 
-logger = logger("login").getlog()
+logger = logger("delete").getlog()
 
 
 @ddt
-class login(unittest.TestCase, base_interface):
+class delete(unittest.TestCase, base_interface):
     father_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "../../")
-    curpath = father_path + "/data/login/login.xls"
+    curpath = father_path + "/data/Delete_Listing/listing.xls"
     print(curpath)
     excel = excel_util(curpath, "Sheet1")
     testData = excel.next()
@@ -26,21 +26,24 @@ class login(unittest.TestCase, base_interface):
         pass
 
     @data(*testData)
-    def test_login(self, testData):
+    def test_delete(self, testData):
         logger.info("执行登录接口开始")
         data = {}
         # print(testData)
-        data["username"] = testData["username"]  # admin
-        data["password"] = int(testData["password"])  # 1234
-        print(data)
+
+        data["listingID"] = int(testData["listingID"])
+        print(data["listingID"])
+        # # data["password"] = int(testData["password"])
         # # data["submit"] = testData["confirm"] #1234
         # headers = {
-        #     "Content-Typ":"application/json"
+        #     "Content-Typ": "application/json"
         # }
-        # res = self.post(testData["url"], data, headers)
+        # res = self.delete(url=' https://bindo.com/api/v2/stores/36323/listings/'+listing_id ,
+        #                   headers=headers
+        #                   )
+        # # self.assertIn(testData["username"], res.text, "请求成功")
         # print(res.text)
-        # self.assertIn(testData["username"], res.text, "请求成功")
-        #
+
 
 
 if __name__ == "__main__":

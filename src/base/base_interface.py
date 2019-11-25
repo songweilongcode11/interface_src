@@ -38,6 +38,16 @@ class base_interface(object):
             logger.info("执行put请求失败！", str(e))
             return ""
 
+    def delete(self, url, data={}, headers={}):
+        logger.info("执行delete请求开始")
+        try:
+            response = requests.put(url, data=data, headers=headers)
+            logger.info("执行delete请求成功")
+            return response.content
+        except BaseException as e:
+            print()
+            logger.info("执行delete请求失败！", str(e))
+            return ""
 
 # # 发送Post请求
 # base_interface=base_interface()
