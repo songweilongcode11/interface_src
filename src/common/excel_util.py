@@ -15,8 +15,12 @@ class excel_util(object):
         #the current column  
         self.curRowNo = 1  
         
-    #获取下一行
-    def next(self):  
+
+    def next(self):
+        '''
+         #获取下一行
+        :return:
+        '''
         r = []  
         while self.hasNext():  
             s = {}  
@@ -25,10 +29,16 @@ class excel_util(object):
             for x in range(i):  
                 s[self.row[x]] = col[x]  
             r.append(s)  
-            self.curRowNo += 1  
+            self.curRowNo += 1
+            print(type(r))
+
         return r      
-    # 判断是否还有行数
+
     def hasNext(self):
+        '''
+         # 判断是否还有行数
+        :return:
+        '''
         if self.rowNum == 0 or self.rowNum <= self.curRowNo :
             return False
         else:
@@ -41,8 +51,14 @@ class excel_util(object):
             return data
         except Exception as e:
             print (str(e))
-    #根据索引获取Excel表格中的数据   参数:file：Excel文件路径     colnameindex：表头列名所在行的所以  ，by_index：表的索引
     def get_table_byindex(self,file= 'file.xls',colnameindex=0,by_index=0):
+        '''
+        #根据索引获取Excel表格中的数据   参数:file：Excel文件路径     colnameindex：表头列名所在行的所以  ，by_index：表的索引
+        :param file:
+        :param colnameindex:
+        :param by_index:
+        :return:
+        '''
         data = self.open_excel(file)
         table = data.sheets()[by_index]
         nrows = table.nrows #行数
@@ -62,12 +78,21 @@ class excel_util(object):
                  list.append(app)
         return list
 
-    #根据名称获取Excel表格中的数据   参数:file：Excel文件路径     colnameindex：表头列名所在行的所以  ，by_name：Sheet1名称
+
     def get_table_byname(self,file= 'file.xls',colnameindex=0,by_name=u'Sheet1'):
+        '''
+        #根据名称获取Excel表格中的数据   参数:file：Excel文件路径     colnameindex：表头列名所在行的所以  ，by_name：Sheet1名称
+        :param file:
+        :param colnameindex:
+        :param by_name:
+        :return:
+        '''
         data = self.open_excel(file)
         table = data.sheet_by_name(by_name)
         nrows = table.nrows #行数
-        colnames = table.row_values(colnameindex) #某一行数据
+        colnames = table.row_values(colnameindex)#某一行数据
+        # if colnames == float:
+        #     colnames = str(int(table.row_values(colnameindex)))
         list = []
         for rownum in range(1,nrows):
              row = table.row_values(rownum)
@@ -93,6 +118,6 @@ class excel_util(object):
         rows = sheet.row_values(rowsindex)
         cell_value=sheet.cell(rowsindex,colindex).value.encode('utf-8')
         print(cell_value.ctype)
-        # if cell_value.ctype == 2 and cell_value.value % 1 == 0:
-        #     cell_value = int(cell_value.value)
+        if cell_value.ctype == 2 and cell_value.value % 1 == 0:
+            cell_value = str(int(cell_value.value))
         return cell_value

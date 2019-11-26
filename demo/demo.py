@@ -14,7 +14,7 @@ logger = logger("login").getlog()
 @ddt
 class login(unittest.TestCase, base_interface):
     father_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "../../")
-    curpath = father_path + "/data/login/login.xls"
+    curpath = father_path + "/data/login.xls"
     print(curpath)
     excel = excel_util(curpath, "Sheet1")
     testData = excel.next()

@@ -30,7 +30,7 @@ class login(unittest.TestCase,base_interface):
         logger.info("执行登录接口开始")
         data = {}
         data["username"] = testData["username"] #admin
-        data["password"] = int(testData["password"])#1234
+        data["password"] = testData["password"]#1234
         print(data)
         # get_data = queue.Queue()
         # # forword = get_data.qsize()
